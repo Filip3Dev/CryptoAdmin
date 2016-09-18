@@ -1,0 +1,34 @@
+<%- model_class = Product -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+      <dl class="dl-horizontal">
+        <ul>
+        	<li>ID: <%= @product.category_id -%></li>
+        	<li>Nome: <%= @product.name -%></li>
+        	<li>Description: <%= @product.description -%></li>
+        	<li>Status: <%= @product.status -%></li>
+        	<li>Quantidade: <%= @product.stock -%></li>
+          <li>Valor: <%= number_to_currency @product.price %></li>
+        	<li>Created At: <%= @product.created_at -%></li>
+        </ul>
+      </dl>
+
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                    products_path, :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_product_path(@product), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    product_path(@product),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger' %>
+
+    </div>
+  </div>
+</div>

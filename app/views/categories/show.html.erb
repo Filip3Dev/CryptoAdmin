@@ -1,0 +1,30 @@
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+      <dl class="dl-horizontal">
+        <ul>
+        	<li>ID: <%= @category.id -%></li>
+        	<li>Nome: <%= @category.name -%></li>
+        	<li>Description: <%= @category.description -%></li>
+          <li>Valor: <%= number_to_currency @category.value %></li>
+        	<li>Created At: <%= @category.created_at -%></li>
+        </ul>
+      </dl>
+
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                    category_path, :class => 'btn btn-default'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_category_path(@category), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    category_path(@category),
+                    :method => 'delete', :class => 'btn btn-danger' %>
+
+    </div>
+  </div>
+</div>

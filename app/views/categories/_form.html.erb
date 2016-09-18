@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-4">
+      <%= simple_form_for @category, :html => { :class => "form-vertical" } do |f| %>
+
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :value %>
+
+      <%= f.button :submit, :class => '' %>
+      <%= link_to t('Cancelar', :default => t("helpers.links.cancel")), categories_path, :class => 'btn btn-default' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

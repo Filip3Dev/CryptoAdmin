@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-4">
+      <%= simple_form_for @product, :html => { :class => "form-vertical" } do |f| %>
+
+      <%= f.association :category, prompt: 'Selecione a Categoria' %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :stock %>
+      <%= f.input :status %>
+
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

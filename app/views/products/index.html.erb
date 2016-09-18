@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+	<h1>Estoque</h1>
+<div class="page-header">
+	<%= link_to "Cadastrar", new_product_path, class: 'btn btn-primary pull-right' %>
+
+</div>
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Nome</th>
+			<th>Descrição</th>
+			<th>Status</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+      <th>Inserção</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td style="font-size:17px;"> <b><%= product.category.try(:name) %></b></td>
+  			<td style="font-size:17px;"> <b><%= product.name %></b></td>
+  			<td style="font-size:17px;"> <b><%= product.description %></b></td>
+  			<td style="font-size:17px;"> <b><%= product.status %></b></td>
+        <td style="font-size:17px;"> <b><%= product.stock %></b></td>
+        <td style="font-size:17px;"> <b><%= number_to_currency product.price %></b></td>
+        <td style="font-size:17px;"> <b><%= product.created_at %></b></td>
+        <td>
+          <%= link_to "Ver", product, class: 'btn btn-info' %>
+          <%= link_to "Editar", edit_product_path(product), class: 'btn btn-primary' %>
+          <%= link_to "Apagar", product,
+  					data: { method: :delete},	class: 'btn btn-danger'
+  				%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
